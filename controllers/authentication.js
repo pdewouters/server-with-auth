@@ -31,11 +31,11 @@ exports.signup = function(req, res, next){
             if(err){
                 return next(err)
             }
-            res.json({token: tokenForUser(user)})
+            res.json({token: tokenForUser(user), email: email})
         })
     })
 }
 
 exports.signin = function(req,res,next){
-    res.send({token:tokenForUser(req.user)})
+    res.send({token:tokenForUser(req.user), email: req.user.email})
 }
