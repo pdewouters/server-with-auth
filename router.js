@@ -9,7 +9,8 @@ module.exports = function(app){
     app.get('/', requireAuth, function(req, res){
         res.send({ message: 'Super secret code is abc123' })
     })
-    app.get('/venue/:venue', requireAuth, Venue.venue)
+    //app.get('/venue/:venue', Venue.venue)
+    app.get('/venue/:venue', Venue.venue)
     app.post('/signin',requireSignin, Authentication.signin)
     app.post('/signup', Authentication.signup)
     app.post('/venue/:venue/adduser', requireAuth, Venue.adduser)
