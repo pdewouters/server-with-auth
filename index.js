@@ -7,7 +7,8 @@ const router = require('./router')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-mongoose.connect('mongodb://localhost:auth/auth')
+
+mongoose.connect('mongodb://' + process.env.MONGOLAB_USER + ':' + process.env.MONGOLAB_PASS + process.env.MONGO_DB)
 // App setup
 app.use(morgan('combined'))
 app.use(cors())
