@@ -12,6 +12,7 @@ mongoose.connect('mongodb://' + process.env.MONGOLAB_USER + ':' + process.env.MO
 // App setup
 app.use(morgan('combined'))
 app.use(cors())
+app.options('*', cors());
 app.use(bodyParser.json({ type: '*/*' }))
 router(app)
 // Server setup
