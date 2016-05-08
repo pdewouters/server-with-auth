@@ -11,8 +11,7 @@ const cors = require('cors')
 mongoose.connect('mongodb://' + process.env.MONGOLAB_USER + ':' + process.env.MONGOLAB_PASS + process.env.MONGO_DB)
 // App setup
 app.use(morgan('combined'))
-app.use(cors())
-app.options('*', cors());
+app.options('*', cors())
 app.use(bodyParser.json({ type: '*/*' }))
 router(app)
 // Server setup
