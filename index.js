@@ -7,11 +7,10 @@ const router = require('./router')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-
+app.options('*', cors())
 mongoose.connect('mongodb://' + process.env.MONGOLAB_USER + ':' + process.env.MONGOLAB_PASS + process.env.MONGO_DB)
 // App setup
 app.use(morgan('combined'))
-app.options('*', cors())
 app.use(bodyParser.json({ type: '*/*' }))
 router(app)
 // Server setup
