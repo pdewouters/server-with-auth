@@ -7,6 +7,7 @@ const cors = require('cors')
 const requireAuth = passport.authenticate('jwt', {session:false})
 const requireSignin = passport.authenticate('local', {session:false})
 module.exports = function(app){
+    app.options('*', cors())
     app.get('/', requireAuth, function(req, res){
         res.send({ message: 'Super secret code is abc123' })
     })
