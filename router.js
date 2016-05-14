@@ -2,6 +2,7 @@ const Authentication = require('./controllers/authentication')
 const Venue = require('./controllers/venue')
 const passportService = require('./services/passport')
 const passport = require('passport')
+const cors = require('cors')
 
 const requireAuth = passport.authenticate('jwt', {session:false})
 const requireSignin = passport.authenticate('local', {session:false})
